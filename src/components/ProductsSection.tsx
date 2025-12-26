@@ -80,7 +80,7 @@ const ProductsSection = () => {
         {/* Product Cards */}
         <div className="grid lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <div key={index} className="relative bg-card rounded-2xl border border-border overflow-hidden">
+            <div key={index} className="relative bg-card rounded-2xl border border-border overflow-hidden card-hover">
               {product.popular && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                   <div className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium">
@@ -122,7 +122,7 @@ const ProductsSection = () => {
                 </div>
 
                 {/* CTA */}
-                <Button className={`w-full ${product.ctaColor} text-primary-foreground py-6`}>
+                <Button className={`w-full ${product.ctaColor} text-primary-foreground py-6 btn-hover`}>
                   {product.cta}
                 </Button>
                 <p className="text-xs text-muted-foreground text-center mt-3">90 sec demo</p>

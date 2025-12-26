@@ -33,14 +33,14 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg btn-hover">
               Explore Opportunities
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-border bg-card hover:bg-secondary px-8 py-6 text-lg"
+              className="border-border bg-card hover:bg-secondary px-8 py-6 text-lg btn-hover"
             >
               <Play className="mr-2 w-5 h-5" />
               Watch Introduction
