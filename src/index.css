@@ -41,9 +41,9 @@
     --emerald-light: 152 35% 92%;
     --rose: 0 55% 65%;
     --rose-light: 0 50% 95%;
+    --footer-bg: 152 30% 12%;
+    --footer-foreground: 152 15% 70%;
     --gold: 45 70% 50%;
-    --footer-bg: 220 30% 15%;
-    --footer-foreground: 220 20% 75%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -112,6 +112,14 @@
 @layer utilities {
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-emerald bg-clip-text text-transparent;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1 hover:border-primary/30;
+  }
+
+  .btn-hover {
+    @apply transition-all duration-200 ease-out hover:scale-[1.02] active:scale-[0.98];
   }
 
   .animate-float {

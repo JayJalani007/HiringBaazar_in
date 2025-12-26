@@ -46,8 +46,8 @@ const ProblemSection = () => {
 
         {/* Problem Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {problems.map((problem, index) => (
-            <div key={index} className="bg-card rounded-2xl p-8 border border-border">
+        {problems.map((problem, index) => (
+            <div key={index} className="bg-card rounded-2xl p-8 border border-border card-hover">
               <div className="flex items-start justify-between mb-6">
                 <div className={`w-14 h-14 rounded-xl bg-rose-light flex items-center justify-center`}>
                   <problem.icon className={`w-7 h-7 ${problem.color}`} />

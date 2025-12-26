@@ -13,14 +13,14 @@ const CTASection = () => {
             Join hundreds of companies that have revolutionized their talent acquisition with Hiring Bazaar.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg btn-hover">
               Start Free Trial
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-border bg-card hover:bg-secondary px-8 py-6 text-lg"
+              className="border-border bg-card hover:bg-secondary px-8 py-6 text-lg btn-hover"
             >
               Schedule Demo
             </Button>

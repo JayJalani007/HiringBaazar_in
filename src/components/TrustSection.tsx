@@ -47,7 +47,7 @@ const TrustSection = () => {
         {/* Credentials */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {credentials.map((cred, index) => (
-            <div key={index} className="bg-card rounded-2xl p-8 border border-border text-center">
+            <div key={index} className="bg-card rounded-2xl p-6 border border-border text-center card-hover">
               <div className="w-16 h-16 rounded-xl bg-emerald-light flex items-center justify-center mx-auto mb-4">
                 <cred.icon className="w-8 h-8 text-primary" />
               </div>

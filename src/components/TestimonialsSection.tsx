@@ -40,8 +40,8 @@ const TestimonialsSection = () => {
 
         {/* Testimonial Cards */}
         <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-card rounded-2xl p-8 border border-border">
+        {testimonials.map((testimonial, index) => (
+            <div key={index} className="bg-card rounded-2xl p-8 border border-border card-hover">
               {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
