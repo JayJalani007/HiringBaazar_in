@@ -1,0 +1,66 @@
+import { Button } from "@/components/ui/button";
+import { Building2 } from "lucide-react";
+
+const Header = () => {
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+      <div className="container mx-auto px-4 md:px-6 py-3 md:py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center gap-2 md:gap-3">
+            <div className="w-8 md:w-10 h-8 md:h-10 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+              <Building2 className="w-4 md:w-5 h-4 md:h-5 text-primary-foreground" />
+            </div>
+            <span className="text-base md:text-xl font-semibold">
+              <span className="text-primary">Hiring</span>
+              <span className="text-foreground">Bazaar</span>
+            </span>
+          </div>
+
+          {/* Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            <a
+              href="#home"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Home
+            </a>
+            <a
+              href="#products"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Products
+            </a>
+            <a
+              href="#about"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              About
+            </a>
+            <a
+              href="#contact"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Contact
+            </a>
+          </nav>
+
+          {/* Auth Buttons */}
+          <div className="flex items-center gap-2 md:gap-4">
+            <Button
+              variant="ghost"
+              className="text-xs md:text-sm text-muted-foreground hover:text-foreground btn-hover px-3 md:px-4 py-1.5 md:py-2"
+            >
+              Sign In
+            </Button>
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground text-xs md:text-sm px-3 md:px-6 py-1.5 md:py-2 btn-hover">
+              Get Started
+            </Button>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
