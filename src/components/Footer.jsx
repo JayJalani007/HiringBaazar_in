@@ -1,10 +1,10 @@
-import { Mail, Phone, MapPin, Linkedin, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-footer text-footer-foreground">
-      <div className="container mx-auto px-4 md:px-6 py-8 md:py-12 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
+      <div className="container mx-auto px-4 md:px-6 py-6 md:py-10 lg:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
           {/* Brand Column */}
           <div>
             <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
@@ -24,19 +24,19 @@ const Footer = () => {
 
             <div className="space-y-2 md:space-y-3">
               <a
-                href="mailto:hello@hiringbazaar.com"
+                href="mailto:contact@hiringbazaar.in"
                 className="flex items-center gap-2 md:gap-3 text-xs md:text-sm text-footer-foreground/80 hover:text-primary-foreground transition-colors"
               >
                 <Mail className="w-4 md:w-5 h-4 md:h-5 flex-shrink-0" />
-                <span className="break-all">hello@hiringbazaar.com</span>
+                <span className="break-all">contact@hiringbazaar.in</span>
               </a>
 
               <a
-                href="tel:+911234567890"
+                href="tel:+919145938795"
                 className="flex items-center gap-2 md:gap-3 text-xs md:text-sm text-footer-foreground/80 hover:text-primary-foreground transition-colors"
               >
                 <Phone className="w-4 md:w-5 h-4 md:h-5 flex-shrink-0" />
-                +91 123 456 7890
+                +91 91459 38795
               </a>
 
               <div className="flex items-center gap-2 md:gap-3 text-xs md:text-sm text-footer-foreground/80">
@@ -48,15 +48,13 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="text-primary-foreground font-semibold text-sm md:text-base mb-4 md:mb-6">
-              Company
-            </h4>
-            <ul className="space-y-2 md:space-y-3">
-              <li><a href="#" className="text-xs md:text-sm text-footer-foreground/80 hover:text-primary-foreground transition-colors">About Us</a></li>
-              <li><a href="#" className="text-xs md:text-sm text-footer-foreground/80 hover:text-primary-foreground transition-colors">Careers</a></li>
-              <li><a href="#" className="text-xs md:text-sm text-footer-foreground/80 hover:text-primary-foreground transition-colors">Blog</a></li>
-              <li><a href="#" className="text-xs md:text-sm text-footer-foreground/80 hover:text-primary-foreground transition-colors">Press Kit</a></li>
-            </ul>
+            <div className="flex flex-wrap items-center gap-4">
+              <a href="#" className="text-primary-foreground font-semibold text-sm md:text-base">Company</a>
+              <a href="#" className="text-primary-foreground font-semibold text-sm md:text-base">About Us</a>
+              <a href="#" className="text-primary-foreground font-semibold text-sm md:text-base">Careers</a>
+              <a href="#" className="text-primary-foreground font-semibold text-sm md:text-base">Blog</a>
+              <a href="#" className="text-primary-foreground font-semibold text-sm md:text-base">Press Kit</a>
+            </div>
           </div>
         </div>
 
@@ -67,11 +65,8 @@ const Footer = () => {
           </p>
 
           <div className="flex items-center gap-3 md:gap-4">
-            <a href="#" className="w-8 md:w-10 h-8 md:h-10 rounded-full bg-footer-foreground/20 flex items-center justify-center hover:bg-footer-foreground/30 transition-colors">
+            <a href="https://www.linkedin.com/company/hiring-bazaar/" target="_blank" rel="noreferrer" className="w-8 md:w-10 h-8 md:h-10 rounded-full bg-footer-foreground/20 flex items-center justify-center hover:bg-footer-foreground/30 transition-colors">
               <Linkedin className="w-4 md:w-5 h-4 md:h-5" />
-            </a>
-            <a href="#" className="w-8 md:w-10 h-8 md:h-10 rounded-full bg-footer-foreground/20 flex items-center justify-center hover:bg-footer-foreground/30 transition-colors">
-              <Youtube className="w-4 md:w-5 h-4 md:h-5" />
             </a>
           </div>
         </div>

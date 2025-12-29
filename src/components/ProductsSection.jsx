@@ -1,5 +1,6 @@
-import { Building2, Users, GraduationCap, Check, Sparkles } from "lucide-react";
+import { Building2, Users, GraduationCap, Check, Sparkles, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const products = [
   {
@@ -23,19 +24,15 @@ const products = [
   },
   {
     icon: Users,
-    title: "Agency Network",
-    subtitle: "For Placement Agencies",
+    title: "Placement agency",
+    subtitle: "For Hiring Through Placement Agencies",
     description:
-      "Vetted pool of AI-equipped placement agencies. Commission-based. Transparent.",
-    stats: [
-      { value: "100+", label: "verified companies" },
-      { value: "0%", label: "upfront fees" },
-      { value: "24h", label: "payment processing" },
-    ],
+      "Vetted pool of Ai equipped placement agencies working parallely as your hr team on commission basis.",
+    stats: [],
     features: [
-      "Dashboard for job opportunities",
-      "Candidate matching powered by AI",
-      "Transparent escrow payment system",
+      "Ai powered faster hiring",
+      "Special discount",
+      "Transparent",
       "Performance analytics",
     ],
     cta: "Join Our Agency Network",
@@ -66,6 +63,21 @@ const products = [
 ];
 
 const ProductsSection = () => {
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+
+  const handleContactClick = (productTitle) => {
+    setToastMessage(`Let's get started with ${productTitle}!`);
+    setShowToast(true);
+
+    const ctaSection = document.querySelector("#cta");
+    if (ctaSection) {
+      ctaSection.scrollIntoView({ behavior: "smooth" });
+    }
+
+    setTimeout(() => setShowToast(false), 4000);
+  };
+
   return (
     <section id="products" className="py-12 md:py-20">
       <div className="container mx-auto px-4 md:px-6">
@@ -98,13 +110,11 @@ const ProductsSection = () => {
                 </div>
               )}
 
-              <div className={`p-5 md:p-8 ${product.popular ? "pt-5 md:pt-8" : ""}`}>
-                {/* Icon */}
+              <div className="p-5 md:p-8">
                 <div className="w-10 md:w-14 h-10 md:h-14 rounded-lg md:rounded-xl bg-emerald-light flex items-center justify-center mb-4 md:mb-6">
                   <product.icon className="w-5 md:w-7 h-5 md:h-7 text-primary" />
                 </div>
 
-                {/* Title */}
                 <h3 className="text-lg md:text-2xl font-semibold mb-1">
                   {product.title}
                 </h3>
@@ -115,25 +125,25 @@ const ProductsSection = () => {
                   {product.description}
                 </p>
 
-                {/* Stats */}
-                <div className="flex items-center gap-2 md:gap-4 pb-4 md:pb-6 border-b border-border">
-                  {product.stats.map((stat, i) => (
-                    <div key={i} className="text-center flex-1">
-                      <div className="text-base md:text-xl font-serif text-primary font-medium">
-                        {stat.value}
+                {product.stats.length > 0 && (
+                  <div className="flex items-center gap-2 md:gap-4 pb-4 md:pb-6 border-b border-border">
+                    {product.stats.map((stat, i) => (
+                      <div key={i} className="text-center flex-1">
+                        <div className="text-base md:text-xl font-serif text-primary font-medium">
+                          {stat.value}
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {stat.label}
+                        </div>
                       </div>
-                      <div className="text-xs text-muted-foreground">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                )}
 
-                {/* Features */}
                 <div className="py-4 md:py-6 space-y-2 md:space-y-3">
                   {product.features.map((feature, i) => (
                     <div key={i} className="flex items-start gap-2 md:gap-3">
-                      <Check className="w-4 md:w-5 h-4 md:h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <Check className="w-4 md:w-5 h-4 md:h-5 text-primary mt-0.5" />
                       <span className="text-xs md:text-sm text-muted-foreground">
                         {feature}
                       </span>
@@ -141,12 +151,13 @@ const ProductsSection = () => {
                   ))}
                 </div>
 
-                {/* CTA */}
                 <Button
-                  className={`w-full ${product.ctaColor} text-primary-foreground text-xs md:text-sm py-4 md:py-6 btn-hover`}
+                  onClick={() => handleContactClick(product.cta)}
+                  className={`w-full ${product.ctaColor} text-primary-foreground text-xs md:text-sm py-4 md:py-6`}
                 >
                   {product.cta}
                 </Button>
+
                 <p className="text-xs text-muted-foreground text-center mt-2 md:mt-3">
                   90 sec demo
                 </p>
@@ -155,6 +166,29 @@ const ProductsSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Toast with ❌ Close */}
+      {showToast && (
+        <div className="fixed bottom-6 right-6 z-40 animate-in fade-in slide-in-from-bottom-5 duration-300">
+          <div className="relative bg-gradient-to-r from-primary to-accent text-white rounded-xl shadow-2xl px-6 py-4 flex items-start gap-3">
+            <div className="flex-1">
+              <p className="font-semibold text-sm md:text-base">{toastMessage}</p>
+              <p className="text-xs text-white/80 mt-1">
+                Scroll down to complete your request
+              </p>
+            </div>
+
+            {/* ❌ Close Button */}
+            <button
+              onClick={() => setShowToast(false)}
+              className="absolute top-2 right-2 text-white/80 hover:text-white"
+              aria-label="Close"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

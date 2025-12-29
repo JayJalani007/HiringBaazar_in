@@ -4,25 +4,25 @@ const testimonials = [
   {
     quote:
       "Hiring Bazaar reduced our time-to-hire by 45%. The AI screening is incredibly accurate and has helped us find better candidates faster than ever before.",
-    name: "Priya Sharma",
-    role: "Head of HR, TechCorp India",
-    initials: "PS",
+    name: "Testunonirs",
+    role: "Kritcure Pharmaceuticals",
+    initials: "TP",
     color: "bg-emerald-light text-primary",
   },
   {
     quote:
       "The agency network feature is a game-changer. We now have complete visibility into our recruitment partners' progress and performance.",
-    name: "Rajesh Kumar",
-    role: "Talent Acquisition Director, StartupX",
-    initials: "RK",
+    name: "Changepay",
+    role: "Partner Network",
+    initials: "CP",
     color: "bg-rose-light text-accent",
   },
   {
     quote:
       "Our campus placement rate doubled within the first year. The AI matching is remarkably good at connecting students with the right opportunities.",
-    name: "Dr. Anita Desai",
-    role: "Placement Director, National Institute of Technology",
-    initials: "AD",
+    name: "Oqlous AI",
+    role: "Innovation Partner",
+    initials: "OA",
     color: "bg-emerald-light text-primary",
   },
 ];

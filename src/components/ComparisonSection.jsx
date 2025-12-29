@@ -80,7 +80,6 @@ const ComparisonSection = () => {
                   </div>
                   <span className="text-muted-foreground">Traditional: <span className="text-foreground font-medium">{row.traditional}</span></span>
                 </div>
-                
                 <div className="flex items-center gap-2 text-xs">
                   <div className="w-5 h-5 rounded-full bg-emerald-light flex items-center justify-center flex-shrink-0">
                     <Check className="w-3 h-3 text-primary" />

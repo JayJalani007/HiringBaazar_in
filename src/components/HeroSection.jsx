@@ -1,7 +1,67 @@
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { ArrowRight, Play, Volume, VolumeX, TrendingUp } from "lucide-react";
 
 const HeroSection = () => {
+  const videoRef = useRef(null);
+  const containerRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isInView, setIsInView] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [showControls, setShowControls] = useState(false);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  const toggleMute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setIsMuted(v.muted);
+  };
+
+  const handleWatchClick = () => {
+    setShowControls(true);
+    const el = containerRef.current;
+    if (el && el.scrollIntoView) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    const v = videoRef.current;
+    if (v) {
+      v.muted = isMuted;
+      const p = v.play();
+      if (p && typeof p.then === "function") p.catch(() => {});
+    }
+  };
+
+  // Observe whether the video container is in view
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsInView(entry.isIntersecting && entry.intersectionRatio > 0.4);
+        });
+      },
+      { threshold: [0, 0.4, 0.6, 1] }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // Play/pause logic: play when hovered or in view, otherwise pause
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (isInView || isHovered) {
+      // ensure muted attribute is set before attempting play (autoplay rules)
+      v.muted = isMuted;
+      const p = v.play();
+      if (p && typeof p.then === "function") p.catch(() => {});
+    } else {
+      v.pause();
+    }
+  }, [isInView, isHovered, isMuted]);
+
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">
       {/* Background decorative elements */}
@@ -12,26 +72,16 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-emerald-light mb-8">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-medium">
-              Reimagining Professional Connections
-            </span>
-          </div>
-
           {/* Heading */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium leading-tight mb-6">
-            Where Exceptional Talent
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8 text-foreground tracking-tight">
+            Turn hiring chaos
             <br />
-            <span className="italic text-primary">Meets Opportunity</span>
+            <span className="bg-gradient-to-r from-primary via-primary to-primary/90 bg-clip-text text-transparent font-extrabold">into a steady pipeline of desired candidates</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-            Connect with forward-thinking companies, discover roles that align
-            with your vision, and take the next meaningful step in your career
-            journey.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed font-normal tracking-wide">
+            HB connects your company with pre-vetted recruiters and job seekers so you can fill roles faster, with less effort and lower cost per hire.
           </p>
 
           {/* CTA Buttons */}
@@ -48,6 +98,7 @@ const HeroSection = () => {
               size="lg"
               variant="outline"
               className="border-border bg-card hover:bg-secondary px-8 py-6 text-lg btn-hover"
+              onClick={handleWatchClick}
             >
               <Play className="mr-2 w-5 h-5" />
               Watch Introduction
@@ -74,27 +125,33 @@ const HeroSection = () => {
         {/* Dashboard Preview with Floating Stats */}
         <div className="mt-16 max-w-4xl mx-auto relative">
           {/* Floating Stat Card - Top Right */}
-          <div className="absolute -top-8 -right-8 z-20 animate-float-bounce">
-            <div className="bg-white dark:bg-card rounded-2xl shadow-2xl p-6 border border-border/50 backdrop-blur-sm">
-              <div className="text-4xl font-bold text-orange-500 mb-1">30%</div>
-              <div className="text-sm text-muted-foreground">Cost Saved</div>
+          <div className="absolute -top-6 -right-6 z-20 animate-float-bounce">
+            <div className="flex items-center gap-3 bg-gradient-to-r from-primary/10 via-primary/20 to-primary/10 dark:bg-card rounded-xl shadow-lg px-3 py-2 border border-border/30 backdrop-blur-sm">
+              <div className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-tr from-primary to-accent text-white shadow">
+                <TrendingUp className="w-4 h-4" />
+              </div>
+              <div className="text-left">
+                <div className="text-sm font-semibold text-foreground">Update</div>
+                <div className="text-xs text-muted-foreground">Latest</div>
+              </div>
             </div>
           </div>
 
           {/* Floating Stat Card - Bottom Left */}
-          <div className="absolute -bottom-8 -left-8 z-20 animate-float-bounce-delayed">
-            <div className="bg-white dark:bg-card rounded-2xl shadow-2xl p-6 border border-border/50 backdrop-blur-sm">
-              <div className="text-4xl font-bold text-teal-500 mb-1">40%</div>
-              <div className="text-sm text-muted-foreground">Faster Hiring</div>
+          <div className="absolute -bottom-6 -left-6 z-20 animate-float-bounce-delayed">
+            <div className="flex items-center gap-3 bg-gradient-to-r from-primary/10 via-primary/20 to-primary/10 dark:bg-card rounded-xl shadow-lg px-3 py-2 border border-border/30 backdrop-blur-sm">
+              <div className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-tr from-primary to-accent text-white shadow">
+                <TrendingUp className="w-4 h-4" />
+              </div>
+              <div className="text-left">
+                <div className="text-sm font-semibold text-foreground">Update</div>
+                <div className="text-xs text-muted-foreground">Now</div>
+              </div>
             </div>
           </div>
 
           {/* Notification Badge - Top */}
-          <div className="absolute -top-4 right-1/4 z-20 animate-float-gentle">
-            <div className="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg font-bold">
-              47
-            </div>
-          </div>
+          {/* Notification badge removed */}
 
           {/* Main Dashboard Card */}
           <div className="bg-card rounded-2xl shadow-xl border border-border overflow-hidden relative">
@@ -105,56 +162,44 @@ const HeroSection = () => {
               <div className="w-3 h-3 rounded-full bg-green-400" />
             </div>
 
-            {/* Tab Navigation */}
-            <div className="flex items-center gap-6 px-6 py-4 border-b border-border bg-muted/20">
-              <div className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium">
-                Tab 1
-              </div>
-              <span className="text-muted-foreground text-sm hover:text-foreground cursor-pointer transition-colors">
-                Tab 2
-              </span>
-              <span className="text-muted-foreground text-sm hover:text-foreground cursor-pointer transition-colors">
-                Tab 3
-              </span>
-              <span className="text-muted-foreground text-sm hover:text-foreground cursor-pointer transition-colors">
-                Tab 4
-              </span>
-              <span className="text-muted-foreground text-sm hover:text-foreground cursor-pointer transition-colors">
-                Tab 5
-              </span>
-            </div>
+            {/* Tabs removed so video fully covers the dashboard area */}
 
             {/* Dashboard Content with Play Button Overlay */}
-            <div className="p-8 space-y-4 relative bg-gradient-to-br from-muted/30 to-muted/10">
-              {/* Central Play Button */}
-              <div className="absolute inset-0 flex items-center justify-center z-10">
-                <div className="w-20 h-20 rounded-full bg-teal-400 flex items-center justify-center shadow-2xl cursor-pointer hover:scale-110 transition-transform animate-pulse-subtle">
-                  <Play className="w-10 h-10 text-white fill-white ml-1" />
-                </div>
-              </div>
+            <div
+              ref={containerRef}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              className="p-0 relative bg-gradient-to-br from-muted/30 to-muted/10"
+            >
+              <div className="relative w-full rounded-xl overflow-hidden">
+                <video
+                  ref={videoRef}
+                  src="/videos/videoplayback.mp4"
+                  className="w-full h-[420px] md:h-[360px] lg:h-[520px] object-cover"
+                  loop
+                  muted={isMuted}
+                  playsInline
+                />
 
-              {/* Content Rows */}
-              {[1, 2, 3].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-4 p-4 bg-white/60 dark:bg-secondary/50 rounded-xl backdrop-blur-sm"
+                <button
+                  onClick={toggleMute}
+                  className={`absolute top-4 right-4 bg-white/90 dark:bg-black/60 rounded-full p-2 shadow transition-colors ${
+                    showControls || isHovered || isInView ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                  }`}
                 >
-                  <div className="w-12 h-12 rounded-full bg-teal-300/50" />
-                  <div className="flex-1 space-y-2">
-                    <div className="h-3 bg-muted rounded-full w-3/4" />
-                    <div className="h-2 bg-muted/60 rounded-full w-1/2" />
-                  </div>
-                  <div
-                    className={`w-3 h-3 rounded-full ${
-                      item === 2 ? "bg-orange-400" : "bg-orange-400"
-                    }`}
-                  />
-                </div>
-              ))}
+                  {isMuted ? (
+                    <VolumeX className="w-5 h-5 text-muted-foreground" />
+                  ) : (
+                    <Volume className="w-5 h-5 text-muted-foreground" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* inline video implemented inside the dashboard card; modal removed */}
 
       <style jsx>{`
         @keyframes float-bounce {

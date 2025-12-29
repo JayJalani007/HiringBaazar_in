@@ -24,9 +24,8 @@ const credentials = [
 ];
 
 const stats = [
-  { value: "100+", label: "Companies Trust Us" },
-  { value: "500+", label: "Partner Agencies" },
-  { value: "10,000+", label: "Candidates Placed" },
+  
+  { value: "20+", label: "HR Trust" },
   { value: "98%", label: "Client Satisfaction" },
 ];
 
@@ -64,20 +63,24 @@ const TrustSection = () => {
         </div>
 
         {/* Stats */}
-        <div className="bg-card rounded-xl md:rounded-2xl border border-border">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border">
-            {stats.map((stat, index) => (
-              <div key={index} className="p-4 md:p-8 text-center">
-                <div className="text-2xl md:text-4xl lg:text-5xl font-serif text-primary font-medium mb-2">
-                  {stat.value}
-                </div>
-                <p className="text-xs md:text-sm text-muted-foreground">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
+        <div className="flex justify-center">
+  <div className="flex flex-col sm:flex-row gap-6 md:gap-10">
+    {stats.map((stat, index) => (
+      <div
+        key={index}
+        className="bg-card rounded-xl md:rounded-2xl border border-border p-6 md:p-10 text-center min-w-[220px]"
+      >
+        <div className="text-2xl md:text-4xl lg:text-5xl font-serif text-primary font-medium mb-2">
+          {stat.value}
         </div>
+        <p className="text-xs md:text-sm text-muted-foreground">
+          {stat.label}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
+
       </div>
     </section>
   );

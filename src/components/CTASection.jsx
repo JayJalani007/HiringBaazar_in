@@ -116,7 +116,7 @@ function ContactForm() {
 
 const CTASection = () => {
   return (
-    <section className="py-12 md:py-20">
+    <section id="cta" className="py-12 md:py-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-medium mb-4 md:mb-6">
@@ -134,24 +134,6 @@ const CTASection = () => {
             <ContactForm />
           </div>
 
-          {/* Alternative CTA Buttons */}
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 md:px-8 py-5 md:py-6 text-base md:text-lg btn-hover w-full sm:w-auto"
-            >
-              Start Free Trial
-              <ArrowRight className="ml-2 w-4 md:w-5 h-4 md:h-5" />
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-border bg-card hover:bg-secondary px-6 md:px-8 py-5 md:py-6 text-base md:text-lg btn-hover w-full sm:w-auto"
-            >
-              Schedule Demo
-            </Button>
-          </div>
         </div>
       </div>
     </section>
