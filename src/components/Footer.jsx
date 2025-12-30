@@ -1,11 +1,11 @@
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
-import Logo from "@/assets/IMG_2805.PNG";
+import Logo from "@/assets/IMG_2824.PNG";
 
 const Footer = () => {
   return (
     <footer className="bg-footer text-footer-foreground">
       <div className="container mx-auto px-4 md:px-6 py-6 md:py-10 lg:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-10">
           {/* Brand Column */}
           <div>
             <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
@@ -46,13 +46,20 @@ const Footer = () => {
           </div>
 
           {/* Company */}
-          <div>
-            <div className="flex flex-wrap items-center gap-4">
+          <div className="mt-7">
+            <div className="flex justify-center">
               <a href="#" className="text-primary-foreground font-semibold text-sm md:text-base">Company</a>
-              <a href="#" className="text-primary-foreground font-semibold text-sm md:text-base">About Us</a>
-              <a href="#" className="text-primary-foreground font-semibold text-sm md:text-base">Careers</a>
-              <a href="#" className="text-primary-foreground font-semibold text-sm md:text-base">Blog</a>
-              <a href="#" className="text-primary-foreground font-semibold text-sm md:text-base">Press Kit</a>
+            </div>
+            <div className="mb-2"></div>
+            <div className="flex justify-center">
+              <div className="border-2 rounded-full w-10"></div>
+            </div>
+            <br />
+            <div className="flex justify-center flex-wrap items-center gap-4">
+              <a href="#" className="text-sm md:text-base">About Us</a>
+              <a href="#" className="text-sm md:text-base">Careers</a>
+              <a href="#" className="text-sm md:text-base">Blog</a>
+              <a href="#" className="text-sm md:text-base">Press Kit</a>
             </div>
           </div>
         </div>

@@ -28,7 +28,7 @@ const HeroSection = () => {
     if (v) {
       v.muted = isMuted;
       const p = v.play();
-      if (p && typeof p.then === "function") p.catch(() => {});
+      if (p && typeof p.then === "function") p.catch(() => { });
     }
   };
 
@@ -56,7 +56,7 @@ const HeroSection = () => {
       // ensure muted attribute is set before attempting play (autoplay rules)
       v.muted = isMuted;
       const p = v.play();
-      if (p && typeof p.then === "function") p.catch(() => {});
+      if (p && typeof p.then === "function") p.catch(() => { });
     } else {
       v.pause();
     }
@@ -76,7 +76,9 @@ const HeroSection = () => {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8 text-foreground tracking-tight">
             Turn hiring chaos
             <br />
-            <span className="bg-gradient-to-r from-primary via-primary to-primary/90 bg-clip-text text-transparent font-extrabold">into a steady pipeline of desired candidates</span>
+            <span className="bg-gradient-to-r from-primary via-primary/90 to-primary/90 bg-clip-text text-transparent font-extrabold tracking-wide">
+              into a steady pipeline of desired candidates
+            </span>
           </h1>
 
           {/* Subheading */}
@@ -183,9 +185,8 @@ const HeroSection = () => {
 
                 <button
                   onClick={toggleMute}
-                  className={`absolute top-4 right-4 bg-white/90 dark:bg-black/60 rounded-full p-2 shadow transition-colors ${
-                    showControls || isHovered || isInView ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                  }`}
+                  className={`absolute top-4 right-4 bg-white/90 dark:bg-black/60 rounded-full p-2 shadow transition-colors ${showControls || isHovered || isInView ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                    }`}
                 >
                   {isMuted ? (
                     <VolumeX className="w-5 h-5 text-muted-foreground" />
