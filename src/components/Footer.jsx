@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import Logo from "@/assets/IMG_2805.PNG";
 
 const Footer = () => {
   return (
@@ -8,13 +9,11 @@ const Footer = () => {
           {/* Brand Column */}
           <div>
             <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
-              <div className="w-8 md:w-10 h-8 md:h-10 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-                <span className="text-primary-foreground font-bold text-sm md:text-lg">H</span>
-              </div>
-              <span className="text-lg md:text-xl font-semibold">
-                <span className="text-primary">Hiring</span>
-                <span className="text-primary-foreground">Bazaar</span>
-              </span>
+              <img
+                src={Logo}
+                alt="HiringBazaar Logo"
+                className="w-32 md:w-40 h-16 md:h-20 object-contain flex-shrink-0"
+              />
             </div>
 
             <p className="text-xs md:text-sm text-footer-foreground/80 mb-4 md:mb-6 max-w-sm">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Building2, Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import Logo from "@/assets/Logo.PNG";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,20 +10,18 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto px-4 md:px-6 py-3 md:py-4">
-        <div className="flex items-center justify-center md:justify-between">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2 md:gap-3 absolute left-4 md:relative md:left-0">
-            <div className="w-8 md:w-10 h-8 md:h-10 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-              <Building2 className="w-4 md:w-5 h-4 md:h-5 text-primary-foreground" />
-            </div>
-            <span className="text-base md:text-xl font-semibold">
-              <span className="text-primary">Hiring</span>
-              <span className="text-foreground">Bazaar</span>
-            </span>
+          <div className="flex items-center gap-2 md:gap-3">
+            <img
+              src={Logo}
+              alt="HiringBazaar Logo"
+              className="w-38 md:w-38 h-12 md:h-16 object-contain flex-shrink-0"
+            />
           </div>
 
-          {/* Desktop Navigation - Centered */}
-          <nav className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
+          {/* Desktop Navigation - Right Aligned */}
+          <nav className="hidden md:flex items-center gap-8">
             <a
               href="#home"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -38,7 +37,7 @@ const Header = () => {
               </button>
               <div className="absolute left-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                 <a
-                  href="https://lnkd.in/gjJZxBqC"
+                  href="https://campushb.hiringbazaar.in/"
                   target="_blank"
                   rel="noreferrer"
                   className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors rounded-t-lg"
@@ -64,7 +63,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden absolute right-4 flex items-center justify-center"
+            className="md:hidden flex items-center justify-center"
           >
             {isMenuOpen ? (
               <X className="w-6 h-6" />
