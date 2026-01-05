@@ -44,6 +44,22 @@ const Header = () => {
                 >
                   Campus HB
                 </a>
+                <a
+                  href="https://hirespark.hiringbazaar.in/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                >
+                  HireSpark
+                </a>
+                <a
+                  href="https://www.partnershb.in/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors rounded-b-lg"
+                >
+                  PartnerSHB
+                </a>
               </div>
             </div>
             <a
@@ -94,13 +110,31 @@ const Header = () => {
               {isProductOpen && (
                 <div className="pl-4 space-y-2 mt-2">
                   <a
-                    href="https://lnkd.in/gjJZxBqC"
+                    href="https://campushb.hiringbazaar.in/"
                     target="_blank"
                     rel="noreferrer"
                     className="block text-muted-foreground hover:text-foreground transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Campus HB
+                  </a>
+                  <a
+                    href="https://hirespark.hiringbazaar.in/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block text-muted-foreground hover:text-foreground transition-colors py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    HireSpark
+                  </a>
+                  <a
+                    href="https://www.partnershb.in/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block text-muted-foreground hover:text-foreground transition-colors py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    PartnerSHB
                   </a>
                 </div>
               )}

@@ -6,8 +6,8 @@ const products = [
   {
     icon: Building2,
     title: "AI Hiring Assistant",
-    subtitle: "For Internal HR Teams",
-    description: "Agentic AI that automates your entire hiring workflow",
+    subtitle: "FOR HRS, COMPANIES",
+    description: "AUTOMATE YOUR HIRING WORKFLOW",
     stats: [
       { value: "30%", label: "cost reduction" },
       { value: "40%", label: "faster time-to-hire" },
@@ -21,13 +21,14 @@ const products = [
     cta: "Automate Your Hiring",
     ctaColor: "bg-primary",
     popular: false,
+    link: null,
   },
   {
     icon: Users,
     title: "Placement agency",
-    subtitle: "For Hiring Through Placement Agencies",
+    subtitle: "For placement agencies",
     description:
-      "Vetted pool of Ai equipped placement agencies working parallely as your hr team on commission basis.",
+      "Increase your revenue, placements and productivity by upto 3times",
     stats: [],
     features: [
       "Ai powered faster hiring",
@@ -38,6 +39,25 @@ const products = [
     cta: "Join Our Agency Network",
     ctaColor: "bg-accent",
     popular: true,
+    link: "https://www.partnershb.in/",
+  },
+  {
+    icon: Sparkles,
+    title: "HireSpark",
+    subtitle: "For Recruitment Agencies",
+    description:
+      "Advanced AI-powered recruitment platform for agencies",
+    stats: [],
+    features: [
+      "AI candidate matching",
+      "Automated workflows",
+      "Client management",
+      "Revenue tracking",
+    ],
+    cta: "Explore HireSpark",
+    ctaColor: "bg-primary",
+    popular: false,
+    link: "https://hirespark.hiringbazaar.in/",
   },
   {
     icon: GraduationCap,
@@ -59,6 +79,7 @@ const products = [
     cta: "Empower Your Placements",
     ctaColor: "bg-primary",
     popular: false,
+    link: null,
   },
 ];
 
@@ -97,9 +118,8 @@ const ProductsSection = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className={`relative bg-card rounded-2xl border border-border overflow-visible card-hover ${
-                product.popular ? "mt-6" : ""
-              }`}
+              className={`relative bg-card rounded-2xl border border-border overflow-visible card-hover ${product.popular ? "mt-6" : ""
+                }`}
             >
               {product.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
@@ -152,15 +172,17 @@ const ProductsSection = () => {
                 </div>
 
                 <Button
-                  onClick={() => handleContactClick(product.cta)}
+                  onClick={() => {
+                    if (product.link) {
+                      window.open(product.link, '_blank');
+                    } else {
+                      handleContactClick(product.cta);
+                    }
+                  }}
                   className={`w-full ${product.ctaColor} text-primary-foreground text-xs md:text-sm py-4 md:py-6`}
                 >
                   {product.cta}
                 </Button>
-
-                <p className="text-xs text-muted-foreground text-center mt-2 md:mt-3">
-                  90 sec demo
-                </p>
               </div>
             </div>
           ))}

@@ -83,19 +83,11 @@ const HeroSection = () => {
 
           {/* Subheading */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed font-normal tracking-wide">
-            HB connects your company with pre-vetted recruiters and job seekers so you can fill roles faster, with less effort and lower cost per hire.
+            HB connects your company with pre-vetted AI equipped recruiters and job seekers so you can fill roles faster, with less effort and lower cost per hire.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg btn-hover"
-            >
-              Explore Opportunities
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-
             <Button
               size="lg"
               variant="outline"
@@ -115,11 +107,11 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-accent" />
-              <span>100+ Companies</span>
+              <span>10+ Companies</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary" />
-              <span>500+ Agencies</span>
+              <span>15+ Agencies</span>
             </div>
           </div>
         </div>

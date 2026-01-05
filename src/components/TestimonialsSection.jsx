@@ -19,7 +19,7 @@ const testimonials = [
   },
   {
     quote:
-      "Our campus placement rate doubled within the first year. The AI matching is remarkably good at connecting students with the right opportunities.",
+      "Oqlous AI - Campus hiring became very much easier for us",
     name: "Oqlous AI",
     role: "Innovation Partner",
     initials: "OA",
