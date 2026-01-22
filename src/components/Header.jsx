@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "@/assets/IMG_2824.PNG";
@@ -12,22 +13,22 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6 py-3 md:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2 md:gap-3">
+          <Link to="/" className="flex items-center gap-2 md:gap-3">
             <img
               src={Logo}
               alt="HiringBazaar Logo"
               className="w-38 md:w-38 h-12 md:h-16 object-contain flex-shrink-0"
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation - Right Aligned */}
           <nav className="hidden md:flex items-center gap-8">
-            <a
-              href="#home"
+            <Link
+              to="/"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Home
-            </a>
+            </Link>
             <div className="relative group">
               <button
                 className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
@@ -63,13 +64,19 @@ const Header = () => {
               </div>
             </div>
             <a
-              href="#about"
+              href="/#about"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               About
             </a>
+            <Link
+              to="/pricing"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Pricing
+            </Link>
             <a
-              href="#contact"
+              href="/#contact"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Contact
@@ -92,13 +99,13 @@ const Header = () => {
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 space-y-3 border-t border-border/50 pt-4">
-            <a
-              href="#home"
+            <Link
+              to="/"
               className="block text-muted-foreground hover:text-foreground transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
-            </a>
+            </Link>
             <div>
               <button
                 onClick={() => setIsProductOpen(!isProductOpen)}
@@ -140,14 +147,21 @@ const Header = () => {
               )}
             </div>
             <a
-              href="#about"
+              href="/#about"
               className="block text-muted-foreground hover:text-foreground transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </a>
+            <Link
+              to="/pricing"
+              className="block text-muted-foreground hover:text-foreground transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Pricing
+            </Link>
             <a
-              href="#contact"
+              href="/#contact"
               className="block text-muted-foreground hover:text-foreground transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >

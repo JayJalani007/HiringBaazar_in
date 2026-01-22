@@ -1,79 +1,168 @@
-import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
 import Logo from "@/assets/IMG_2824.PNG";
 
 const Footer = () => {
   return (
-    <footer className="bg-footer text-footer-foreground">
-      <div className="container mx-auto px-4 md:px-6 py-6 md:py-10 lg:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-10">
+    <footer id="about" className="bg-footer text-footer-foreground">
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
           {/* Brand Column */}
-          <div>
-            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
-              <img
-                src={Logo}
-                alt="HiringBazaar Logo"
-                className="w-32 md:w-40 h-16 md:h-20 object-contain flex-shrink-0"
-              />
+          <div className="lg:col-span-1">
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold text-primary-foreground">
+                Hiring<span className="text-primary">Bazaar</span>
+              </h2>
             </div>
-
-            <p className="text-xs md:text-sm text-footer-foreground/80 mb-4 md:mb-6 max-w-sm">
-              Revolutionizing Talent Acquisition by AI and Strategic
-              Collaboration. Making hiring simple, fast, and transparent.
+            <p className="text-sm text-footer-foreground/80 mb-6 leading-relaxed">
+              Revolutionizing Talent Acquisition through AI and Strategic Collaboration.
+              Making hiring simple, fast, and transparent.
             </p>
-
-            <div className="space-y-2 md:space-y-3">
+            <div className="flex items-center gap-3">
               <a
-                href="mailto:contact@hiringbazaar.in"
-                className="flex items-center gap-2 md:gap-3 text-xs md:text-sm text-footer-foreground/80 hover:text-primary-foreground transition-colors"
+                href="https://www.linkedin.com/company/hiring-bazaar/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
               >
-                <Mail className="w-4 md:w-5 h-4 md:h-5 flex-shrink-0" />
-                <span className="break-all">contact@hiringbazaar.in</span>
+                <Linkedin className="w-5 h-5 text-primary" />
               </a>
-
               <a
-                href="tel:+919145938795"
-                className="flex items-center gap-2 md:gap-3 text-xs md:text-sm text-footer-foreground/80 hover:text-primary-foreground transition-colors"
+                href="#"
+                className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
               >
-                <Phone className="w-4 md:w-5 h-4 md:h-5 flex-shrink-0" />
-                +91 91459 38795
+                <Twitter className="w-5 h-5 text-primary" />
               </a>
-
-              <div className="flex items-center gap-2 md:gap-3 text-xs md:text-sm text-footer-foreground/80">
-                <MapPin className="w-4 md:w-5 h-4 md:h-5 flex-shrink-0" />
-                TIDES, IIT Roorkee, Uttarakhand
-              </div>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
+              >
+                <Facebook className="w-5 h-5 text-primary" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
+              >
+                <Instagram className="w-5 h-5 text-primary" />
+              </a>
             </div>
           </div>
 
-          {/* Company */}
-          <div className="mt-7">
-            <div className="flex justify-center">
-              <a href="#" className="text-primary-foreground font-semibold text-sm md:text-base">Company</a>
-            </div>
-            <div className="mb-2"></div>
-            <div className="flex justify-center">
-              <div className="border-2 rounded-full w-10"></div>
-            </div>
-            <br />
-            <div className="flex justify-center flex-wrap items-center gap-4">
-              <a href="#" className="text-sm md:text-base">About Us</a>
-              <a href="#" className="text-sm md:text-base">Careers</a>
-              <a href="#" className="text-sm md:text-base">Blog</a>
-              <a href="#" className="text-sm md:text-base">Press Kit</a>
-            </div>
+          {/* Company Column */}
+          <div>
+            <h3 className="text-primary-foreground font-semibold text-lg mb-4">Company</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-sm text-footer-foreground/80 hover:text-primary transition-colors">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-sm text-footer-foreground/80 hover:text-primary transition-colors">
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-sm text-footer-foreground/80 hover:text-primary transition-colors">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-sm text-footer-foreground/80 hover:text-primary transition-colors">
+                  Press Kit
+                </a>
+              </li>
+              <li>
+                <a href="/pricing" className="text-sm text-footer-foreground/80 hover:text-primary transition-colors">
+                  Pricing
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Products Column */}
+          <div>
+            <h3 className="text-primary-foreground font-semibold text-lg mb-4">Products</h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="https://campushb.hiringbazaar.in/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-footer-foreground/80 hover:text-primary transition-colors"
+                >
+                  Campus HB
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://hirespark.hiringbazaar.in/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-footer-foreground/80 hover:text-primary transition-colors"
+                >
+                  HireSpark
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.partnershb.in/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-footer-foreground/80 hover:text-primary transition-colors"
+                >
+                  PartnerSHB
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Column */}
+          <div>
+            <h3 className="text-primary-foreground font-semibold text-lg mb-4">Contact Us</h3>
+            <ul className="space-y-4">
+              <li>
+                <a
+                  href="mailto:contact@hiringbazaar.in"
+                  className="flex items-start gap-3 text-sm text-footer-foreground/80 hover:text-primary transition-colors group"
+                >
+                  <Mail className="w-5 h-5 flex-shrink-0 mt-0.5 group-hover:text-primary" />
+                  <span>contact@hiringbazaar.in</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+919145938795"
+                  className="flex items-start gap-3 text-sm text-footer-foreground/80 hover:text-primary transition-colors group"
+                >
+                  <Phone className="w-5 h-5 flex-shrink-0 mt-0.5 group-hover:text-primary" />
+                  <span>+91 91459 38795</span>
+                </a>
+              </li>
+              <li>
+                <div className="flex items-start gap-3 text-sm text-footer-foreground/80">
+                  <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <span>TIDES, IIT Roorkee, Uttarakhand</span>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-footer-foreground/20 mt-8 md:mt-12 pt-6 md:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          <p className="text-footer-foreground/60 text-xs md:text-sm">
-            © 2024 Hiring Bazaar (LyteHire.ai). All rights reserved.
-          </p>
-
-          <div className="flex items-center gap-3 md:gap-4">
-            <a href="https://www.linkedin.com/company/hiring-bazaar/" target="_blank" rel="noreferrer" className="w-8 md:w-10 h-8 md:h-10 rounded-full bg-footer-foreground/20 flex items-center justify-center hover:bg-footer-foreground/30 transition-colors">
-              <Linkedin className="w-4 md:w-5 h-4 md:h-5" />
-            </a>
+        <div className="border-t border-footer-foreground/20 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-footer-foreground/60 text-sm text-center md:text-left">
+              © 2024 Hiring Bazaar (LyteHire.ai). All rights reserved.
+            </p>
+            <div className="flex items-center gap-6">
+              <a href="#" className="text-sm text-footer-foreground/60 hover:text-primary transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-sm text-footer-foreground/60 hover:text-primary transition-colors">
+                Terms of Service
+              </a>
+            </div>
           </div>
         </div>
       </div>
