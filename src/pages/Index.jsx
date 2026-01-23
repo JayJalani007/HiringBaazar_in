@@ -23,13 +23,8 @@ const Index = () => {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
       }
-    } else if (location.pathname === '/' && window.location.hash === '') {
-      // On initial load or when clicking Home, scroll to top
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'auto' });
-      }, 0);
     }
-  }, [location]);
+  }, [location.hash]);
 
   return (
     <motion.div
@@ -53,7 +48,9 @@ const Index = () => {
           <CTASection />
         </section>
       </main>
-      <Footer />
+      <section id="about">
+        <Footer />
+      </section>
     </motion.div>
   );
 };

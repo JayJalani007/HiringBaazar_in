@@ -3,7 +3,7 @@ import Logo from "@/assets/IMG_2824.PNG";
 
 const Footer = () => {
   return (
-    <footer id="about" className="bg-footer text-footer-foreground">
+    <footer className="bg-footer text-footer-foreground">
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
 
@@ -123,11 +123,11 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:contact@hiringbazaar.in"
+                  href="mailto:support@hiringbazaar.in"
                   className="flex items-start gap-3 text-sm text-footer-foreground/80 hover:text-primary transition-colors group"
                 >
                   <Mail className="w-5 h-5 flex-shrink-0 mt-0.5 group-hover:text-primary" />
-                  <span>contact@hiringbazaar.in</span>
+                  <span>support@hiringbazaar.in</span>
                 </a>
               </li>
               <li>
@@ -156,10 +156,10 @@ const Footer = () => {
               © 2024 Hiring Bazaar (LyteHire.ai). All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <a href="#" className="text-sm text-footer-foreground/60 hover:text-primary transition-colors">
+              <a href="/privacy-policy" className="text-sm text-footer-foreground/60 hover:text-primary transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-sm text-footer-foreground/60 hover:text-primary transition-colors">
+              <a href="/terms-of-service" className="text-sm text-footer-foreground/60 hover:text-primary transition-colors">
                 Terms of Service
               </a>
             </div>

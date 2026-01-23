@@ -23,12 +23,12 @@ const Header = () => {
 
           {/* Desktop Navigation - Right Aligned */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link
-              to="/"
+            <a
+              href="/#home"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Home
-            </Link>
+            </a>
             <div className="relative group">
               <button
                 className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
@@ -99,13 +99,13 @@ const Header = () => {
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 space-y-3 border-t border-border/50 pt-4">
-            <Link
-              to="/"
+            <a
+              href="/#home"
               className="block text-muted-foreground hover:text-foreground transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
-            </Link>
+            </a>
             <div>
               <button
                 onClick={() => setIsProductOpen(!isProductOpen)}
